@@ -13,8 +13,8 @@ class StatisticController @Inject()(statisticService: StatisticService)
   override implicit protected val swagger = TwitterStatisticSwagger
 
   get(s"/statistic/first10", swagger { o =>
-    o.summary("Get the first ten wordss th most popular")
-      .description("Get the first ten wordss th most popular")
+    o.summary("Get the first ten words the most popular")
+      .description("Get the first ten words the most popular")
       .tag("statistic")
       .produces("application/json")
       .responseWith[Words](200, "Ok")

@@ -25,6 +25,11 @@
             <name>twitter-repo</name>
             <url>https://maven.twttr.com</url>
         </pluginRepository>
+        <pluginRepository>
+            <id>sonatype</id>
+            <name>sonatype</name>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </pluginRepository>
     </pluginRepositories>
 
 
@@ -46,13 +51,13 @@
         <guice-testlib.version>4.0</guice-testlib.version>
         <salat.version>1.11.2</salat.version>
         <scalatest.version>3.0.0</scalatest.version>
-        <specs2.version>2.4.17</specs2.version>
+        <!--<specs2.version>2.4.17</specs2.version>-->
         <typesafeconfig-guice.version>0.0.2</typesafeconfig-guice.version>
         <typesafe-config.version>1.3.0</typesafe-config.version>
         <finagle-postgres.version>0.4.3</finagle-postgres.version>
 
         <swagger.version>1.5.10</swagger.version>
-        <finatra.swagger.version>0.5.1</finatra.swagger.version>
+        <finatra.swagger.version>0.7.2</finatra.swagger.version>
 
         <maven-source-plugin.version>2.4</maven-source-plugin.version>
         <scala-maven-plugin.version>3.2.0</scala-maven-plugin.version>
@@ -66,6 +71,7 @@
 
         <postgres.version>42.0.0</postgres.version>
         <scalaj-http.version>2.3.0</scalaj-http.version>
+        <libthrift.version>0.6.1</libthrift.version>
     </properties>
 
     <dependencies>
@@ -191,7 +197,7 @@
 
         <dependency>
             <groupId>com.github.xiaodongw</groupId>
-            <artifactId>swagger-finatra2_${scala.artifactVersion}</artifactId>
+            <artifactId>swagger-finatra_${scala.artifactVersion}</artifactId>
             <version>${finatra.swagger.version}</version>
             <exclusions>
                 <exclusion>
@@ -210,7 +216,7 @@
             <scope>test</scope>
             <version>${scalatest.version}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.specs2</groupId>
             <artifactId>specs2_${scala.artifactVersion}</artifactId>
             <scope>test</scope>
@@ -220,8 +226,12 @@
                     <groupId>org.scala-lang</groupId>
                     <artifactId>scala-compiler</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.scalaz.stream</groupId>
+                    <artifactId>scalaz-stream</artifactId>
+                </exclusion>
             </exclusions>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -281,6 +291,19 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-dbcp2</artifactId>
             <version>${commons-dbcp2.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.scalaz.stream/scalaz-stream -->
+        <dependency>
+            <groupId>org.scalaz.stream</groupId>
+            <artifactId>scalaz-stream_${scala.artifactVersion}</artifactId>
+            <version>0.7.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.thrift/libthrift -->
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>${libthrift.version}</version>
+            <type>pom</type>
         </dependency>
 
     </dependencies>
